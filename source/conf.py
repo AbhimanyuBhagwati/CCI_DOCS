@@ -5,7 +5,7 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-
+import sphinx_rtd_theme
 project = 'CCI_TESTBED_DOCS'
 copyright = '2024, TEAM'
 author = 'TEAM'
