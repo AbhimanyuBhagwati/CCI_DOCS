@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCIxG Testbed Network Architecture &mdash; CCI_TESTBED_DOCS 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=e135db8e" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OpenSAS Architecture" href="Opensas.html" />
+    <link rel="prev" title="More about the Commonwealth Cyber Initiative (CCI) xG Testbed" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/xG-rev-4c-01.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">What is CCI xG Testbed</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ccixg.html">Overview to CCI xG testbed</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="policies.html"><strong>CCI xG Testbed User Policy</strong></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About CCI xG Testbed</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">More about the Commonwealth Cyber Initiative (CCI) xG Testbed</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Network Architecture</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CCIxG Testbed Network Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#infrastructure-diagram">Infrastructure Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#components-internet-cloud">Components - Internet Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cisco-router-10-0-0-1">Cisco Router (10.0.0.1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backhaul-switch-10-0-0-x">Backhaul Switch (10.0.0.x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#public-hosting-server-internal-ip-10-0-0-4">Public Hosting Server (internal IP: 10.0.0.4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#components">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openstack-environment">OpenStack Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Components:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flow-of-information">Flow of Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openstack-components-communicate-with-each-other-through-the-backhaul-switch">OpenStack components communicate with each other through the Backhaul Switch:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OpenSAS Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Opensas.html">OpenSAS Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Opensack Dashboard</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="openstack.html">CCI xG Testbed OPENSTACK</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">openstack-kolla-ansible</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="openstack-kolla-ansible.html">Meta Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openstack-kolla-ansible.html#maas-installation">MAAS Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openstack-kolla-ansible.html#ansible-installation">Ansible Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openstack-kolla-ansible.html#setting-up-the-multi-node-configuration">Setting up the multi-node configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">4G Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="4g-deployment.html">4G Deployment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">5G Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="5g-deployment.html">5G Deployment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Creek Testbed</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CREEK_TESTBED_SITE.html">CCI xG Testbed: Outdoor Experimentation and Testing Environment(CBRS Testbed Site)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ORAN</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="oran.html">ORAN (Open Radio Access Network)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contact Us</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contact_us.html">Contact Us</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CCI_TESTBED_DOCS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CCIxG Testbed Network Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Infrastructure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ccixg-testbed-network-architecture">
+<span id="network-architecture"></span><h1>CCIxG Testbed Network Architecture<a class="headerlink" href="#ccixg-testbed-network-architecture" title="Link to this heading"></a></h1>
+<p>This provides a detailed description of the network infrastructure setup, including requirements, components, and the flow of information between them.</p>
+<section id="infrastructure-diagram">
+<h2>Infrastructure Diagram<a class="headerlink" href="#infrastructure-diagram" title="Link to this heading"></a></h2>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Infrastructure-diag.png"><img alt="CBRS Hardware" src="_images/Infrastructure-diag.png" style="width: 1150px; height: 700px;" /></a>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Internet connectivity for the local network.</p></li>
+<li><p>Routing and traffic management between the internet and internal network</p></li>
+<li><p>Central switching for connecting various network components</p></li>
+<li><p>Public hosting server for running services and applications</p></li>
+<li><p>OpenStack environment for virtualization and resource management</p></li>
+<li><p>Scalable and flexible infrastructure for running and managing virtual machines, storage, and networking resources</p></li>
+</ul>
+</section>
+<section id="components-internet-cloud">
+<h2>Components - Internet Cloud<a class="headerlink" href="#components-internet-cloud" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Represents the global internet</p></li>
+<li><p>Connects to the local network through the Cisco Router</p></li>
+</ul>
+</section>
+<section id="cisco-router-10-0-0-1">
+<h2>Cisco Router (10.0.0.1)<a class="headerlink" href="#cisco-router-10-0-0-1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Acts as a gateway between the internet and the internal network</p></li>
+<li><p>Manages traffic flow between the two networks</p></li>
+</ul>
+</section>
+<section id="backhaul-switch-10-0-0-x">
+<h2>Backhaul Switch (10.0.0.x)<a class="headerlink" href="#backhaul-switch-10-0-0-x" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Central switching component for connecting various network elements</p></li>
+<li><p>Routes traffic between the Public Hosting Server and the OpenStack environment</p></li>
+</ul>
+</section>
+<section id="public-hosting-server-internal-ip-10-0-0-4">
+<h2>Public Hosting Server (internal IP: 10.0.0.4)<a class="headerlink" href="#public-hosting-server-internal-ip-10-0-0-4" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Hosts various services and applications</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>MAAS (10.0.0.12): Metal as a Service for provisioning and managing physical servers</p></li>
+<li><p>Gitlab (10.0.0.xx): Web-based Git repository manager for version control and collaboration</p></li>
+<li><p>Docs (38.68.231.174 and 38.68.231.xxx): Documentation servers or content management system</p></li>
+<li><p>Gateway (172.167.0.10): Server acting as a gateway for specific services or applications</p></li>
+<li><p>Redmine (10.0.0.12): Project management and issue tracking tool</p></li>
+<li><p>CAM (38.68.231.179): Content Addressable Memory or custom application</p></li>
+<li><p>Ansible (10.0.0.6): Configuration management and automation tool</p></li>
+</ul>
+</section>
+<section id="openstack-environment">
+<h2>OpenStack Environment<a class="headerlink" href="#openstack-environment" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Provides a scalable and flexible infrastructure for running and managing virtual machines, storage, and networking resources</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id1">
+<h2>Components:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>OpenStack Controller (10.0.0.143): Central management component for orchestrating and managing OpenStack services</p></li>
+<li><p>OpenStack Storage Server (10.0.0.139): Provides storage services (e.g., block storage, object storage)</p></li>
+<li><p>OpenStack Compute Nodes (10.0.0.202, 10.0.0.201, 10.0.0.205): Run virtual machines and provide computing resources</p></li>
+<li><p>OpenStack Radio Nodes (10.0.0.200, 10.0.0.203): Manage software-defined radio or wireless communication</p></li>
+</ul>
+</section>
+<section id="flow-of-information">
+<h2>Flow of Information<a class="headerlink" href="#flow-of-information" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Internet traffic enters the network through the Internet Cloud and is routed by the Cisco Router to the internal network.</p></li>
+<li><p>The Cisco Router forwards the traffic to the Backhaul Switch, which acts as a central distribution point.</p></li>
+<li><p>The Backhaul Switch routes traffic between the Public Hosting Server and the OpenStack environment based on the destination IP addresses.</p></li>
+<li><p>The Public Hosting Server receives incoming traffic for its hosted services and applications, processes the requests, and sends responses back through the Backhaul Switch and Cisco Router to the internet.</p></li>
+</ul>
+</section>
+<section id="openstack-components-communicate-with-each-other-through-the-backhaul-switch">
+<h2>OpenStack components communicate with each other through the Backhaul Switch:<a class="headerlink" href="#openstack-components-communicate-with-each-other-through-the-backhaul-switch" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The OpenStack Controller manages and orchestrates the other OpenStack services.</p></li>
+<li><p>OpenStack Compute Nodes receive instructions from the Controller to create, manage, and terminate virtual machines.</p></li>
+<li><p>OpenStack Storage Server provides storage resources to the virtual machines and other services.</p></li>
+<li><p>OpenStack Radio Nodes handle software-defined radio or wireless communication within the OpenStack environment.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>This technical document provides an overview of the network infrastructure setup, detailing the requirements, components, and flow of information. The setup is designed to provide a scalable, flexible, and efficient environment for hosting services, managing resources, and enabling communication between various components. By understanding the roles and interactions of each element, administrators can effectively maintain and troubleshoot the network infrastructure.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="More about the Commonwealth Cyber Initiative (CCI) xG Testbed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Opensas.html" class="btn btn-neutral float-right" title="OpenSAS Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, TEAM.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none;}
+  </style>
+
+
+
+</body>
+</html>
