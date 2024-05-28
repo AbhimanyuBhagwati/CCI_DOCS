@@ -34,4 +34,4 @@ python:
   install:
     - requirements: source/requirements.txt
     - requirements:
-        - sphinx-rtd-theme
+        - 'sphinx-rtd-theme'
