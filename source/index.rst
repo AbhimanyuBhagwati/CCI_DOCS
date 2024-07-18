@@ -49,9 +49,34 @@ Welcome to CCI_TESTBED_DOCS's documentation!
 
 .. toctree::
    :maxdepth: 9
+   :caption: Network Plan Configuration
+
+   net_plan_config
+
+.. toctree::
+   :maxdepth: 9
+   :caption: OTIC
+
+   otic_documents
+
+.. toctree::
+   :maxdepth: 9
+   :caption: UHD Configuration
+
+   uhd
+
+.. toctree::
+   :maxdepth: 9
+   :caption: 4G Prerequisite
+
+   4g_prerequisite
+
+.. toctree::
+   :maxdepth: 9
    :caption: 4G Deployment
 
    4g-deployment
+
 
 .. toctree::
    :maxdepth: 9
@@ -70,6 +95,12 @@ Welcome to CCI_TESTBED_DOCS's documentation!
    :caption: ORAN
 
    oran
+
+.. toctree::
+   :maxdepth: 9
+   :caption: Team Info
+
+   team_info
 
 .. toctree::
    :maxdepth: 9
