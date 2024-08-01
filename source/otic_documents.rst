@@ -35,7 +35,7 @@ The OTIC architecture focuses on ultra-high bandwidth and low latency wireless c
 .. raw:: html
 
    <div style="display: flex; justify-content: center;">
-     <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1y-14BrRX_dkfD7plXZ76obGwEjDvDzI&ehbc=2E312F" width="800" height="500"></iframe>
+     <iframe src="https://www.google.com/maps/d/u/3/embed?mid=1482S18-61pp9zI-bNaLeKO7vpyn9tfY&ehbc=2E312F" width="640" height="480"></iframe>
    </div>
 
 
